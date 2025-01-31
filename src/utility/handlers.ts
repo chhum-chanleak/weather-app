@@ -5,7 +5,8 @@ export const handleSubmit = (): void => {
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
   const filteredValue = utils.filterInputValue(input.value);
 
-  if (utils.checkExistence(input)) {
+  // Check whether input exists and input.value is not empty
+  if (utils.checkExistence(input) && filteredValue !== "") {
     utils.addCardToWeatherInfoCards(new WeatherInfoCard().create(filteredValue));
     utils.stopFormRefreshing();
     utils.fillWeatherInfoCardWithInformation();
@@ -16,3 +17,4 @@ export const handleSubmit = (): void => {
     console.warn("input not found");
   }
 };
+
