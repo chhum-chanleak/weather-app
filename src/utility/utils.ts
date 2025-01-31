@@ -115,3 +115,16 @@ export const stopFormRefreshing = (): void => {
     console.log("form not found");
   }
 };
+
+export const addCardToWeatherInfoCards = (card: HTMLElement): void => {
+  const weatherInfoCards = document.querySelector(".weather-info-cards") as HTMLDivElement;
+
+  if (checkExistence(weatherInfoCards)) {
+    appendChildrenToParent(
+      weatherInfoCards,
+      card,
+    );
+  } else {
+    console.log("weatherInfoCards not found");
+  }
+};
