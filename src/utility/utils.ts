@@ -130,3 +130,26 @@ export const addCardToWeatherInfoCards = (weatherInfoCard: HTMLElement): void =>
     console.log("weatherInfoCards not found");
   }
 };
+
+export const fillWeatherInfoCardWithInformation = (): void => {
+  const input = document.querySelector("input[name='location']") as HTMLInputElement;
+
+  const city = document.querySelector(`.weather-info-card.${input.value} li.city`) as HTMLElement;
+  const description = document.querySelector(`.weather-info-card.${input.value} li.description`) as HTMLElement;
+  const timezone = document.querySelector(`.weather-info-card.${input.value} li.timezone`) as HTMLElement;
+
+  fetchWeatherDataFromLocation(input.value)
+  .then((info) => {
+    try {
+      if (info) {
+        city.textContent = `${info.address}`;
+        description.textContent = `${info.description}`;
+        timezone.textContent = `${info.timezone}`;
+      } else {
+        throw new Error("Error fetching data");
+      }
+    } catch(error){
+      console.log(error);
+    }
+  });
+};
