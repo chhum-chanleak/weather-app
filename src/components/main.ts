@@ -1,6 +1,8 @@
 import { appendChildrenToParent } from "../utility/utils";
+import { FormWeather } from "./form";
+import { WeatherInfoCards } from "./weather-info-cards";
 
-export class Main {
+class Main {
   constructor(
     private children: HTMLElement[]
   ) {}
@@ -17,3 +19,8 @@ export class Main {
     return main;
   }
 }
+
+export const main = new Main([
+  new FormWeather().create(),
+  new WeatherInfoCards().create(),
+]).create();
