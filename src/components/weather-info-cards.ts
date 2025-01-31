@@ -1,5 +1,4 @@
 import * as utils from "../utility/utils";
-import { WeatherInfoCard } from "./weather-info-card";
 
 export class WeatherInfoCards {
   create(): HTMLElement {
@@ -8,7 +7,6 @@ export class WeatherInfoCards {
 
     utils.appendChildrenToParent(
       weatherInfoCards,
-      new WeatherInfoCard().create(),
     );
 
     return weatherInfoCards
