@@ -58,3 +58,21 @@ type WeatherInfo = {
   description: string;
   timezone: string;
 };
+
+export const getWeatherData = ({ 
+  city,
+  currentConditions,
+  days,
+  description,
+  timezone,
+}: WeatherInfo) => {
+  const weatherInfo = {
+    city,
+    currentConditions,
+    days,
+    description,
+    timezone,
+  };
+
+  return weatherInfo;
+};
