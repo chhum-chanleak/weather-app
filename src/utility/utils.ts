@@ -1,3 +1,4 @@
+// Fetch weather data of a location
 export const fetchWeatherDataFromLocation = async (location: string): Promise<WeatherInfo | null> => {
   try {
     const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=58BNYSLW5JBTD7K5WWJ46YRBL`);
@@ -51,7 +52,7 @@ type Day = {
   source: string;
 };
 
-type WeatherInfo = {
+export type WeatherInfo = {
   city: string,
   currentConditions: CurrentConditions,
   days: Day[];
@@ -77,6 +78,7 @@ export const getWeatherData = ({
   return weatherInfo;
 };
 
+// Append child elements to a parent element
 type AppendChildrenToParent = (parent: HTMLElement, ...children: HTMLElement[]) => void;
 export const appendChildrenToParent: AppendChildrenToParent = (parent, ...children) => {
   for (let i = 0; i < children.length; i += 1) {
@@ -96,6 +98,7 @@ export const showInputValue = (): void => {
   }
 };
 
+// Check whether an element exists
 export const checkExistence = (element: HTMLElement): boolean => {
   if (element) {
     return true;
@@ -116,13 +119,14 @@ export const stopFormRefreshing = (): void => {
   }
 };
 
-export const addCardToWeatherInfoCards = (card: HTMLElement): void => {
+// Append weatherInfoCard component to weatherInfoCards
+export const addCardToWeatherInfoCards = (weatherInfoCard: HTMLElement): void => {
   const weatherInfoCards = document.querySelector(".weather-info-cards") as HTMLDivElement;
 
   if (checkExistence(weatherInfoCards)) {
     appendChildrenToParent(
       weatherInfoCards,
-      card,
+      weatherInfoCard,
     );
   } else {
     console.log("weatherInfoCards not found");
