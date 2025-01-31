@@ -88,9 +88,17 @@ export const appendChildrenToParent: AppendChildrenToParent = (parent, ...childr
 export const showInputValue = (): void => {
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
 
-  if (input) {
+  if (checkExistence(input)) {
     console.log(input.value);
   } else {
-    console.log("Input not found");
-  }  
+    console.log("input not found");
+  }
+};
+
+export const checkExistence = (element: HTMLElement): boolean => {
+  if (element) {
+    return true;
+  }
+
+  return false;
 };
