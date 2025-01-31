@@ -2,8 +2,6 @@ import * as utils from "./utility/utils";
 import { handleSubmit } from "./utility/handlers";
 import { main } from "./components/main";
 
-// fetchWeatherDataFromLocation("phnom_penh");
-
 // Apply event listeners
 const applyEvents = (): void => {
   const submitButton = document.querySelector("button[name='location']") as HTMLButtonElement;

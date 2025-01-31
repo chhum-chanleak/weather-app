@@ -122,12 +122,13 @@ export const addCardToWeatherInfoCards = (weatherInfoCard: HTMLElement): void =>
 
 export const fillWeatherInfoCardWithInformation = (): void => {
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
+  const filteredValue = filterInputValue(input.value);
 
-  const city = document.querySelector(`.weather-info-card.${input.value} li.city`) as HTMLElement;
-  const description = document.querySelector(`.weather-info-card.${input.value} li.description`) as HTMLElement;
-  const timezone = document.querySelector(`.weather-info-card.${input.value} li.timezone`) as HTMLElement;
+  const city = document.querySelector(`.weather-info-card.${filteredValue} li.city`) as HTMLElement;
+  const description = document.querySelector(`.weather-info-card.${filteredValue} li.description`) as HTMLElement;
+  const timezone = document.querySelector(`.weather-info-card.${filteredValue} li.timezone`) as HTMLElement;
 
-  fetchWeatherDataFromLocation(input.value)
+  fetchWeatherDataFromLocation(filteredValue)
   .then((info) => {
     try {
       if (info) {
