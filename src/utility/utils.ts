@@ -153,3 +153,20 @@ export const fillWeatherInfoCardWithInformation = (): void => {
     }
   });
 };
+
+// Return a filtered string which contains only lowercase a to z
+export const filterInputValue = (str: string): string => {
+  const alphabets = "abcdefghijklmnopqrstuvwxyz";
+  const charactersArray: string[] = str.toLowerCase().split("");
+  const filteredArray: string[] = [];
+
+  for (let i = 0; i < charactersArray.length; i += 1) {
+    if (!alphabets.includes(charactersArray[i])) {
+      continue;
+    }
+
+    filteredArray.push(charactersArray[i]);
+  }
+
+  return filteredArray.join("");
+};
