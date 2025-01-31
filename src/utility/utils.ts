@@ -102,3 +102,13 @@ export const checkExistence = (element: HTMLElement): boolean => {
 
   return false;
 };
+
+export const stopFormRefreshing = (): void => {
+  const form = document.querySelector(".form-weather") as HTMLFormElement;
+
+  if (checkExistence(form)) {
+    form.addEventListener("submit", (event: Event) => {
+      event.preventDefault();
+    });
+  }
+};
