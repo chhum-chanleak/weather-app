@@ -8,8 +8,7 @@ export const fetchWeatherDataFromLocation = async (location: string): Promise<We
     }
 
     const data = await response.json();
-    
-    console.log(JSON.stringify(getWeatherData(data)));
+    console.log(data);
 
     return getWeatherData(data);
   } catch(error) {
@@ -53,7 +52,7 @@ type Day = {
 };
 
 export type WeatherInfo = {
-  city: string,
+  address: string,
   currentConditions: CurrentConditions,
   days: Day[];
   description: string;
@@ -61,14 +60,14 @@ export type WeatherInfo = {
 };
 
 export const getWeatherData = ({ 
-  city,
+  address,
   currentConditions,
   days,
   description,
   timezone,
 }: WeatherInfo) => {
   const weatherInfo = {
-    city,
+    address,
     currentConditions,
     days,
     description,
@@ -92,7 +91,6 @@ export const showInputValue = (): void => {
 
   if (checkExistence(input)) {
     console.log(input.value);
-    input.value = "";
   } else {
     console.log("input not found");
   }
