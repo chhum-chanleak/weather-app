@@ -111,5 +111,7 @@ export const stopFormRefreshing = (): void => {
     form.addEventListener("submit", (event: Event) => {
       event.preventDefault();
     });
+  } else {
+    console.log("form not found");
   }
 };
