@@ -8,6 +8,7 @@ export class Main {
   create(): HTMLElement {
     const main = document.createElement("main");
 
+    // Append elements to main
     appendChildrenToParent(
       main,
       ...this.children,
