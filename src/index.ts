@@ -1,7 +1,6 @@
 import * as utils from "./utility/utils";
-import { Main } from "./components/main";
-import { FormWeather } from "./components/form";
 import { handleSubmit } from "./utility/handlers";
+import { main } from "./components/main";
 
 // fetchWeatherDataFromLocation("phnom_penh");
 
@@ -16,9 +15,7 @@ const app = () => {
 
   utils.appendChildrenToParent(
     container,
-    new Main([
-      new FormWeather().create(),
-    ]).create(),
+    main,
   );
 
   // Apply event listeners
