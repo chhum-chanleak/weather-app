@@ -1,4 +1,4 @@
-export class Form {
+export class FormWeather {
   create(): HTMLElement {
     const form = document.createElement("form");
 
