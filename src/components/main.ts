@@ -1,5 +1,4 @@
 import { appendChildrenToParent } from "../utility/utils";
-import { Form } from "./form";
 
 export class Main {
   constructor(
