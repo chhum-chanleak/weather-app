@@ -83,3 +83,14 @@ export const appendChildrenToParent: AppendChildrenToParent = (parent, ...childr
     parent.appendChild(children[i]);
   }
 }
+
+// Show input value
+export const showInputValue = (): void => {
+  const input = document.querySelector("input[name='location']") as HTMLInputElement;
+
+  if (input) {
+    console.log(input.value);
+  } else {
+    console.log("Input not found");
+  }  
+};
