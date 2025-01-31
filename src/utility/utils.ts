@@ -10,7 +10,7 @@ export const fetchWeatherDataFromLocation = async (location: string): Promise<We
     const data = await response.json();
     console.log(data);
 
-    return getWeatherData(data);
+    return getFilteredWeatherData(data);
   } catch(error) {
     console.log("Failed to fetch weather data:", error);
 
@@ -59,7 +59,7 @@ export type WeatherInfo = {
   timezone: string;
 };
 
-export const getWeatherData = ({ 
+export const getFilteredWeatherData = ({ 
   resolvedAddress,
   currentConditions,
   days,
