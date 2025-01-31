@@ -1,7 +1,7 @@
 // Fetch weather data of a location
 export const fetchWeatherDataFromLocation = async (location: string): Promise<WeatherInfo | null> => {
   try {
-    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=58BNYSLW5JBTD7K5WWJ46YRBL`);
+    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${filterInputValue(location)}?key=58BNYSLW5JBTD7K5WWJ46YRBL`);
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -84,17 +84,6 @@ export const appendChildrenToParent: AppendChildrenToParent = (parent, ...childr
     parent.appendChild(children[i]);
   }
 }
-
-// Show input value
-export const showInputValue = (): void => {
-  const input = document.querySelector("input[name='location']") as HTMLInputElement;
-
-  if (checkExistence(input)) {
-    console.log(input.value);
-  } else {
-    console.log("input not found");
-  }
-};
 
 // Check whether an element exists
 export const checkExistence = (element: HTMLElement): boolean => {
