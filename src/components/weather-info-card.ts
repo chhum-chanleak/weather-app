@@ -5,6 +5,11 @@ export class WeatherInfoCard {
     const weatherInfoCard = document.createElement("div");
     weatherInfoCard.setAttribute("class", `weather-info-card ${cardName}`);
 
+    utils.appendChildrenToParent(
+      weatherInfoCard,
+      new InformationList().create(),
+    );
+
     return weatherInfoCard;
   }
 }
