@@ -1,9 +1,9 @@
 import * as utils from "../utility/utils";
 
 export class WeatherInfoCard {
-  create(): HTMLElement {
+  create(cardName: string): HTMLElement {
     const weatherInfoCard = document.createElement("div");
-    weatherInfoCard.setAttribute("class", "weather-info-card");
+    weatherInfoCard.setAttribute("class", `weather-info-card ${cardName}`);
 
     return weatherInfoCard;
   }
