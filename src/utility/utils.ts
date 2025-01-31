@@ -52,7 +52,7 @@ type Day = {
 };
 
 export type WeatherInfo = {
-  address: string,
+  resolvedAddress: string,
   currentConditions: CurrentConditions,
   days: Day[];
   description: string;
@@ -60,14 +60,14 @@ export type WeatherInfo = {
 };
 
 export const getWeatherData = ({ 
-  address,
+  resolvedAddress,
   currentConditions,
   days,
   description,
   timezone,
 }: WeatherInfo) => {
   const weatherInfo = {
-    address,
+    resolvedAddress,
     currentConditions,
     days,
     description,
@@ -132,7 +132,7 @@ export const fillWeatherInfoCardWithInformation = (): void => {
   .then((info) => {
     try {
       if (info) {
-        city.textContent = `${info.address}`;
+        city.textContent = `${info.resolvedAddress}`;
         description.textContent = `${info.description}`;
         timezone.textContent = `${info.timezone}`;
       } else {
