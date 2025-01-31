@@ -1,5 +1,6 @@
-import { showInputValue } from "./utils";
+import * as utils from "./utils";
 
 export const handleSubmit = (): void => {
-  showInputValue();
+  utils.showInputValue();
+  utils.stopFormRefreshing();
 };
