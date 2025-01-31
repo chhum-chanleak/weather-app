@@ -3,6 +3,8 @@ import { appendChildrenToParent } from "../utility/utils";
 export class FormWeather {
   create(): HTMLElement {
     const form = document.createElement("form");
+    form.setAttribute("class", "form-weather");
+
     const submitButton = document.createElement("button");
     submitButton.textContent = "Submit";
     submitButton.name = "location"
