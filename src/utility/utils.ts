@@ -90,6 +90,7 @@ export const showInputValue = (): void => {
 
   if (checkExistence(input)) {
     console.log(input.value);
+    input.value = "";
   } else {
     console.log("input not found");
   }
