@@ -162,7 +162,13 @@ export const filterInputValue = (str: string): string => {
 };
 
 // Hide Loading component
-const hideLoading = () => {
+const hideLoading = (): void => {
   const loading = document.querySelector(".loading") as HTMLElement;
   loading.style.display = "none";
+};
+
+// Show Loading component
+const showLoading = (): void => {
+  const loading = document.querySelector(".loading") as HTMLElement;
+  loading.style.display = "block";
 };
