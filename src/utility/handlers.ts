@@ -25,7 +25,6 @@ export const handleSubmit = (): void => {
     utils.fillWeatherInfoCardWithInformation();
     utils.handleLoading();
     searchHistoryStorage.register(filteredValue, filteredValue);
-    console.log(searchHistoryStorage.getSearchHistoryList());
 
     // Clear input field
     input.value = "";

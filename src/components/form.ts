@@ -17,12 +17,12 @@ export class FormWeather {
     const rejectMessage = document.createElement("span");
     rejectMessage.classList.add("reject-message");
 
-    // Append elements to form
+    // Append elements to FormWeather component
     appendChildrenToParent(
       formWeather,
-      submitButton,
-      input,
       rejectMessage,
+      input,
+      submitButton,
     );
 
     return formWeather;
