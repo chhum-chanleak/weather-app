@@ -10,6 +10,7 @@ export const handleSubmit = (): void => {
     utils.addCardToWeatherInfoCards(new WeatherInfoCard().create(filteredValue));
     utils.stopFormRefreshing();
     utils.fillWeatherInfoCardWithInformation();
+    utils.handleLoading();
 
     // Clear input field
     input.value = "";
@@ -17,4 +18,3 @@ export const handleSubmit = (): void => {
     console.warn("input not found");
   }
 };
-
