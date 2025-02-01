@@ -1,3 +1,5 @@
+import { searchHistoryStorage } from "../data/data";
+
 // Fetch weather data of a location
 export const fetchWeatherDataFromLocation = async (location: string): Promise<WeatherInfo | null> => {
   try {
@@ -190,3 +192,11 @@ export const handleLoading = () => {
     }, 1500);
   }  
 };
+
+// Reject input value when the input value already exists
+// Example: You cannot fetch 'Paris' when you have already fetched it once.
+export const rejectAlreadyExistsInputValue = (inputValue: string):void => {
+  if (searchHistoryStorage.getSearchHistoryList().has(inputValue)) {
+    throw new Error(`${inputValue} already exists`);
+  }
+}
