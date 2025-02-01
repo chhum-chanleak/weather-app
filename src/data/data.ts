@@ -6,29 +6,42 @@ class SearchHistoryStorage {
   }
 
   register(name: string, searchHistory: string): void {
-    if (this.getSearchHistoryList().has(name)) {
-      throw new Error(`${name} already exists`);
+    try {
+      if (this.getSearchHistoryList().has(name)) {
+        throw new Error(`${name} already exists`);
+      }
+  
+      this.getSearchHistoryList().set(name, searchHistory);
+      console.log(`${name} registered successfully`);
+    } catch(error) {
+      console.error(error);
     }
-
-    this.getSearchHistoryList().set(name, searchHistory);
-    console.log(`${name} registered successfully`);
   }
 
   deregister(name: string): void {
-    if (!this.getSearchHistoryList().has(name)) {
-      throw new Error(`${name} does not exist`);
+    try {
+      if (!this.getSearchHistoryList().has(name)) {
+        throw new Error(`${name} does not exist`);
+      }
+  
+      this.getSearchHistoryList().delete(name);
+      console.log(`${name} deregistered successfully`);
+    } catch(error) {
+      console.error(error);
     }
 
-    this.getSearchHistoryList().delete(name);
-    console.log(`${name} deregistered successfully`);
   }
 
   getSearchHistory(name: string): string | undefined {
-    if (!this.getSearchHistoryList().has(name)) {
-      throw new Error(`${name} does not exist`);
+    try {
+      if (!this.getSearchHistoryList().has(name)) {
+        throw new Error(`${name} does not exist`);
+      }
+  
+      return this.getSearchHistoryList().get(name);
+    } catch(error) {
+      console.error(error);
     }
-
-    return this.getSearchHistoryList().get(name);
   }
 
   readSearchHistory(): void {
