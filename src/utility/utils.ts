@@ -162,13 +162,31 @@ export const filterInputValue = (str: string): string => {
 };
 
 // Hide Loading component
-const hideLoading = (): void => {
+export const hideLoading = (): void => {
   const loading = document.querySelector(".loading") as HTMLElement;
   loading.style.display = "none";
 };
 
 // Show Loading component
-const showLoading = (): void => {
+export const showLoading = (): void => {
   const loading = document.querySelector(".loading") as HTMLElement;
-  loading.style.display = "block";
+  loading.style.display = "flex";
+};
+
+// Display Loading component when fetching data from the server and hide it when the data is fetched successfully
+export const handleLoading = () => {
+  const input = document.querySelector("input[name='location']") as HTMLInputElement;
+  const filteredValue = filterInputValue(input.value);
+
+  const city = document.querySelector(`.weather-info-card.${filteredValue} li.city`) as HTMLElement;
+
+  // Check whether fetching data is done
+  if (city.textContent === "") {
+    showLoading();
+
+    // Hide Loading component after 1.5 seconds
+    setTimeout(() => {
+      hideLoading();
+    }, 1500);
+  }  
 };
