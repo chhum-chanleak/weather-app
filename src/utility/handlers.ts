@@ -6,6 +6,9 @@ export const handleSubmit = (): void => {
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
   const filteredValue = utils.filterInputValue(input.value);
 
+  // Clear the reject message
+  utils.removeRejectMessageTextContent();
+
   // Reject input value when the input value already exists
   // Example: You cannot fetch 'Paris' when you have already fetched it once.
   try {
