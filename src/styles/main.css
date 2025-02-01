@@ -6,3 +6,59 @@
   line-height: 1.5;
   box-sizing: border-box;
 }
+
+main {
+  height: 100vh;
+  padding: 1rem;
+
+  & .loading {
+    border: 1px solid #000;
+    height: 100px;
+    width: 400px;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .circles-container {
+    display: flex;
+
+  }
+
+  & .circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; /* Makes it a circle */
+    background-color: blue; /* Circle color */
+    animation: growShrink 1s infinite; 
+  }
+  
+  & .circle:nth-child(2) {
+    animation-delay: 100ms;;
+  }
+  
+  & .circle:nth-child(3) {
+    animation-delay: 200ms;;
+  }
+
+  & .circle:nth-child(4) {
+    animation-delay: 300ms;;
+  }
+
+  & .circle:nth-child(5) {
+    animation-delay: 400ms;;
+  }
+}
+
+@keyframes growShrink {
+  0% {
+    transform: scale(1); /* Start with normal size */
+  }
+  50% {
+    transform: scale(2); /* Grow to 2x the size */
+  }
+  100% {
+    transform: scale(1); /* Shrink back to normal size */
+  }
+}
