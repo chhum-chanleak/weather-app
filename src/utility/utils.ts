@@ -204,7 +204,7 @@ export const rejectAlreadyExistsInputValue = (inputValue: string):void => {
 }
 
 // Set text content for rejectMessage
-const setRejectMessageTextContent = () => {
+export const setRejectMessageTextContent = (): void => {
   const rejectMessage = document.querySelector("span.reject-message") as HTMLElement;
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
   const filteredValue = filterInputValue(input.value);
@@ -214,4 +214,10 @@ const setRejectMessageTextContent = () => {
   } else {
     console.warn("rejectMessage not found");
   }
+};
+
+// Remove text content of rejectMessage
+export const removeRejectMessageTextContent = (): void => {
+  const rejectMessage = document.querySelector("span.reject-message") as HTMLSpanElement;
+  rejectMessage.textContent = "";
 };
