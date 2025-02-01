@@ -160,3 +160,9 @@ export const filterInputValue = (str: string): string => {
 
   return filteredArray.join("");
 };
+
+// Hide Loading component
+const hideLoading = () => {
+  const loading = document.querySelector(".loading") as HTMLElement;
+  loading.style.display = "none";
+};
