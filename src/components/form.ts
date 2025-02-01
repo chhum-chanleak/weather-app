@@ -1,9 +1,10 @@
 import { appendChildrenToParent } from "../utility/utils";
+import { searchHistoryStorage } from "../data/data";
 
 export class FormWeather {
   create(): HTMLElement {
-    const form = document.createElement("form");
-    form.setAttribute("class", "form-weather");
+    const formWeather = document.createElement("form");
+    formWeather.setAttribute("class", "form-weather");
 
     const submitButton = document.createElement("button");
     submitButton.textContent = "Submit";
@@ -13,13 +14,17 @@ export class FormWeather {
     input.type = "text";
     input.name = "location";
 
+    const rejectMessage = document.createElement("span");
+    rejectMessage.classList.add("reject-message");
+
     // Append elements to form
     appendChildrenToParent(
-      form,
+      formWeather,
       submitButton,
-      input
+      input,
+      rejectMessage,
     );
 
-    return form;
+    return formWeather;
   }
 }

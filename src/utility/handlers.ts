@@ -17,16 +17,16 @@ export const handleSubmit = (): void => {
 
   // Check whether input exists and input.value is not empty
   if (utils.checkExistence(input) && filteredValue !== "") {
-      utils.addCardToWeatherInfoCards(new WeatherInfoCard().create(filteredValue));
-      utils.stopFormRefreshing();
-      utils.fillWeatherInfoCardWithInformation();
-      utils.handleLoading();
-      searchHistoryStorage.register(filteredValue, filteredValue);
-      console.log(searchHistoryStorage.getSearchHistoryList());
+    utils.addCardToWeatherInfoCards(new WeatherInfoCard().create(filteredValue));
+    utils.stopFormRefreshing();
+    utils.fillWeatherInfoCardWithInformation();
+    utils.handleLoading();
+    searchHistoryStorage.register(filteredValue, filteredValue);
+    console.log(searchHistoryStorage.getSearchHistoryList());
 
     // Clear input field
     input.value = "";
   } else {
-    console.warn("input not found");
+    console.warn("Input is empty. Write something in the input field.");
   }
 };

@@ -16,14 +16,16 @@ main {
     height: 100px;
     width: 400px;
     border-radius: 1rem;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
   }
 
   & .circles-container {
     display: flex;
-
+    justify-content: space-around;
+    width: clamp(80px, 6vw, 6vw);
   }
 
   & .circle {

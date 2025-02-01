@@ -189,7 +189,7 @@ export const handleLoading = () => {
     // Hide Loading component after 1.5 seconds
     setTimeout(() => {
       hideLoading();
-    }, 1500);
+    }, 2000);
   }  
 };
 

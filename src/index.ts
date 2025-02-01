@@ -1,6 +1,7 @@
 import * as utils from "./utility/utils";
 import { handleSubmit } from "./utility/handlers";
 import { main } from "./components/main";
+import "../src/styles/main.css";
 
 // Apply event listeners
 const applyEvents = (): void => {
