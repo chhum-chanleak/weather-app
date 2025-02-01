@@ -1,4 +1,5 @@
 import * as utils from "../utility/utils";
+import "../styles/loading.css";
 
 export class Loading {
   create(): HTMLElement {

@@ -1,5 +1,5 @@
 import { appendChildrenToParent } from "../utility/utils";
-import { searchHistoryStorage } from "../data/data";
+import "../styles/form.css";
 
 export class FormWeather {
   create(): HTMLElement {

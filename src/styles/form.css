@@ -1,0 +1,43 @@
+.form-weather {
+  padding: 1rem;
+  display: flex;
+  
+  & .reject-message {
+  }
+
+  & input[name="location"] {
+    border: 1px solid #898282;
+    border-radius: 8px 0 0 8px;
+    padding: 4px;
+  }
+
+  & button {
+    padding: 4px;
+    border-radius: 0 8px 8px 0 ;
+  }
+}
+
+/* For smart phones */
+@media (max-width: 768px) {
+  .form-weather {
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+
+    & .reject-message {
+
+    }
+  
+    & input[name="location"] {
+    }
+  
+    & button {
+      margin-right: auto;
+    }
+  }
+
+
+}
+
+/* Styles for iPads and tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+}
