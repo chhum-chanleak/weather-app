@@ -197,18 +197,20 @@ export const handleLoading = () => {
 // Example: You cannot fetch 'Paris' when you have already fetched it once.
 export const rejectAlreadyExistsInputValue = (inputValue: string):void => {
   if (searchHistoryStorage.getSearchHistoryList().has(inputValue)) {
+    // Show a reject message when the input value already exists
+    setRejectMessageTextContent();
     throw new Error(`${inputValue} already exists`);
   }
 }
 
-// Set text content of rejectMessage
+// Set text content for rejectMessage
 const setRejectMessageTextContent = () => {
   const rejectMessage = document.querySelector("span.reject-message") as HTMLElement;
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
   const filteredValue = filterInputValue(input.value);
 
   if (rejectMessage) {
-    rejectMessage.textContent = `'${filteredValue}' already exists. Search another location`;
+    rejectMessage.textContent = `'${filteredValue}' already exists. Search another location.`;
   } else {
     console.warn("rejectMessage not found");
   }
