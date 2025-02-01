@@ -1,13 +1,11 @@
-import { type WeatherInfo } from "../utility/utils";
+class SearchHistoryStorage {
+  private searchHistoryStorage: Map<string, string> = new Map();
 
-export class WeatherInfoDataStorage {
-  private weatherInfoDataStorage: Map<string, WeatherInfo> = new Map();
-
-  getLogList(): Map<string, WeatherInfo> {
-    return this.weatherInfoDataStorage;
+  getLogList(): Map<string, string> {
+    return this.searchHistoryStorage;
   }
 
-  register(name: string, log: WeatherInfo): void {
+  register(name: string, log: string): void {
     if (this.getLogList().has(name)) {
       throw new Error(`${name} already exists`);
     }
@@ -25,7 +23,7 @@ export class WeatherInfoDataStorage {
     console.log(`${name} deregistered successfully`);
   }
 
-  getLog(name: string): WeatherInfo | undefined {
+  getLog(name: string): string | undefined {
     if (!this.getLogList().has(name)) {
       throw new Error(`${name} does not exist`);
     }
@@ -37,3 +35,5 @@ export class WeatherInfoDataStorage {
     console.log(this.getLogList());
   }
 }
+
+export const searchHistoryStorage = new SearchHistoryStorage();
