@@ -1,38 +1,38 @@
 class SearchHistoryStorage {
   private searchHistoryStorage: Map<string, string> = new Map();
 
-  getLogList(): Map<string, string> {
+  getSearchHistoryList(): Map<string, string> {
     return this.searchHistoryStorage;
   }
 
-  register(name: string, log: string): void {
-    if (this.getLogList().has(name)) {
+  register(name: string, searchHistory: string): void {
+    if (this.getSearchHistoryList().has(name)) {
       throw new Error(`${name} already exists`);
     }
 
-    this.getLogList().set(name, log);
+    this.getSearchHistoryList().set(name, searchHistory);
     console.log(`${name} registered successfully`);
   }
 
   deregister(name: string): void {
-    if (!this.getLogList().has(name)) {
+    if (!this.getSearchHistoryList().has(name)) {
       throw new Error(`${name} does not exist`);
     }
 
-    this.getLogList().delete(name);
+    this.getSearchHistoryList().delete(name);
     console.log(`${name} deregistered successfully`);
   }
 
-  getLog(name: string): string | undefined {
-    if (!this.getLogList().has(name)) {
+  getSearchHistory(name: string): string | undefined {
+    if (!this.getSearchHistoryList().has(name)) {
       throw new Error(`${name} does not exist`);
     }
 
-    return this.getLogList().get(name);
+    return this.getSearchHistoryList().get(name);
   }
 
-  readLog(): void {
-    console.log(this.getLogList());
+  readSearchHistory(): void {
+    console.log(this.getSearchHistoryList());
   }
 }
 
