@@ -178,7 +178,7 @@ export const fillCardMainContent = (info: WeatherInfo) => {
   image.src = `${weatherImageSources.thunder}`;
 
   const degree = document.querySelector(".degree") as HTMLElement;
-  degree.textContent = `${info.currentConditions.temp} deg`;
+  degree.textContent = `${info.currentConditions.temp} °C`;
 
   const conditionHeader = document.querySelector(".condition-header") as HTMLElement;
   conditionHeader.textContent = info.currentConditions.conditions;

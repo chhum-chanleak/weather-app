@@ -14,7 +14,7 @@ export const handleSubmit = (): void => {
     utils.addCardToWeatherInfoCards(new WeatherInfoCard().create(filteredValue));
     utils.stopFormRefreshing();
     utils.fillWeatherInfoCardWithInformation();
-    // utils.handleLoading();
+    utils.handleLoading();
 
     // Clear input field
     input.value = "";
