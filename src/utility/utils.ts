@@ -59,6 +59,7 @@ export type WeatherInfo = {
   days: Day[];
   description: string;
   timezone: string;
+  date: string;
 };
 
 export const getFilteredWeatherData = ({ 
@@ -67,6 +68,7 @@ export const getFilteredWeatherData = ({
   days,
   description,
   timezone,
+  date,
 }: WeatherInfo) => {
   const weatherInfo = {
     resolvedAddress,
@@ -74,6 +76,7 @@ export const getFilteredWeatherData = ({
     days,
     description,
     timezone,
+    date,
   };
 
   return weatherInfo;
