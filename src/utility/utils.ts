@@ -241,3 +241,14 @@ export const fillCardMainContent = (info: WeatherInfo) => {
   const conditionDescription = document.querySelector(".condition-description") as HTMLElement;
   conditionDescription.textContent = info.description;
 };
+
+// Remove WeatherInfoCard component if it exists
+export const removeWeatherInfoCard = (): void => {
+  const weatherInfoCard = document.querySelector(".weather-info-card") as HTMLElement;
+
+  if (weatherInfoCard) {
+    weatherInfoCard.remove();
+  } else {
+    console.log("Add new WeatherInfoCard");
+  }
+};

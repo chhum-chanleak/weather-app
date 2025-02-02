@@ -7,7 +7,7 @@ export class FormWeather {
     formWeather.setAttribute("class", "form-weather");
 
     const submitButton = document.createElement("button");
-    submitButton.textContent = "Submit";
+    submitButton.textContent = "Search";
     submitButton.name = "location"
 
     const input = document.createElement("input");
