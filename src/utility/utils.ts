@@ -1,8 +1,8 @@
 import { weatherImageSources } from "../data/images";
-import { type WeatherInfo } from "../types/weather";
+import * as WeatherInfoTypes from "../types/weather";
 
 // Fetch weather data of a location
-export const fetchWeatherDataFromLocation = async (location: string): Promise<WeatherInfo | null> => {
+export const fetchWeatherDataFromLocation = async (location: string): Promise<WeatherInfoTypes.WeatherInfo | null> => {
   try {
     const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${filterInputValue(location)}?key=58BNYSLW5JBTD7K5WWJ46YRBL`);
 
@@ -28,7 +28,7 @@ export const getFilteredWeatherData = ({
   days,
   description,
   timezone,
-}: WeatherInfo) => {
+}: WeatherInfoTypes.WeatherInfo) => {
   const weatherInfo = {
     resolvedAddress,
     currentConditions,
@@ -145,8 +145,8 @@ export const handleLoading = () => {
   }  
 };
 
-// Fill main content of the weather card with information
-export const fillCardMainContent = (info: WeatherInfo) => {
+// Fill main content of the WeatherInfoCard component with information
+export const fillCardMainContent = (info: WeatherInfoTypes.WeatherInfo): void => {
   const currentDate = document.querySelector(".current-date") as HTMLElement;
   currentDate.textContent = info.days[0].datetime;
 
@@ -166,6 +166,23 @@ export const fillCardMainContent = (info: WeatherInfo) => {
 
   const conditionDescription = document.querySelector(".condition-description") as HTMLElement;
   conditionDescription.textContent = info.description;
+};
+
+// Fill footer of the WeatherInfoCard component with information
+export const fillCardFooter = (info: WeatherInfoTypes.WeatherInfo): void => {
+  const nextTwoDaysInfo: WeatherInfoTypes.Day[] = [info.days[1], info.days[2]];
+
+  const day1 = document.querySelector(".day1") as HTMLElement;
+  day1.textContent = nextTwoDaysInfo[0].datetime;
+
+  const day1Image = document.querySelector(".day1-image") as HTMLImageElement;
+  day1Image.alt = nextTwoDaysInfo[0].conditions;
+
+  const day2 = document.querySelector(".day2") as HTMLElement;
+  day2.textContent = nextTwoDaysInfo[1].datetime;
+
+  const day2Image = document.querySelector(".day2-image") as HTMLImageElement;
+  day2Image.alt = nextTwoDaysInfo[1].conditions;
 };
 
 // Remove WeatherInfoCard component if it exists
