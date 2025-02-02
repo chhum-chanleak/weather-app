@@ -198,18 +198,33 @@ export const removeWeatherInfoCard = (): void => {
 };
 
 // Return a weather image source from weather conditions
-export const getWeatherImageSource = (conditions: string) => {
-
-  switch (conditions.toLowerCase()) {
+export const getWeatherImageSource = (conditions: string): number | void => {
+  switch (convertToSingleCondition(conditions)) {
     case "clear": return weatherImageSources.clear;
     case "partially cloudy": return weatherImageSources.partlyCloudy;
     case "snow": return weatherImageSources.snow;
     case "overcast": return weatherImageSources.overcast;
     default: 
       try {
-        throw new Error(`Unknown weather condition '${conditions.toLowerCase()}'`);
+        throw new Error(`Unknown weather condition '${convertToSingleCondition(conditions)}'`);
       } catch(error) {
         console.error(error);
       }
   }
+};
+
+// Convert and return multiple-condition to single-condition
+// Example: 'Snow, Partly cloudy' will be converted to just 'Snow'
+const convertToSingleCondition = (condition: string): string | undefined => {
+  const firstCondition: string[] = [];
+
+  for (let i = 0; i < condition.toLowerCase().length; i += 1) {
+    if (condition.toLowerCase()[i] !== ",") {
+      firstCondition.push(condition.toLowerCase()[i]);
+    } else {
+      break;
+    }
+  }
+
+  return firstCondition.join("");
 };
