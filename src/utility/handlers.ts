@@ -5,9 +5,6 @@ export const handleSearch = (): void => {
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
   const filteredValue = utils.filterInputValue(input.value);
 
-  // Clear the reject message
-  utils.removeRejectMessageTextContent();
-
   // Check whether input exists and input.value is not empty
   if (utils.checkExistence(input) && filteredValue !== "") {
     utils.removeWeatherInfoCard(); // Remove old WeatherInfoCard before adding a new one

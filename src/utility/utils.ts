@@ -145,25 +145,6 @@ export const handleLoading = () => {
   }  
 };
 
-// Set text content for rejectMessage
-export const setRejectMessageTextContent = (): void => {
-  const rejectMessage = document.querySelector("span.reject-message") as HTMLElement;
-  const input = document.querySelector("input[name='location']") as HTMLInputElement;
-  const filteredValue = filterInputValue(input.value);
-
-  if (rejectMessage) {
-    rejectMessage.textContent = `'${filteredValue}' already exists! Search another location.`;
-  } else {
-    console.warn("rejectMessage not found");
-  }
-};
-
-// Remove text content of rejectMessage
-export const removeRejectMessageTextContent = (): void => {
-  const rejectMessage = document.querySelector("span.reject-message") as HTMLSpanElement;
-  rejectMessage.textContent = "";
-};
-
 // Fill main content of the weather card with information
 export const fillCardMainContent = (info: WeatherInfo) => {
   const currentDate = document.querySelector(".current-date") as HTMLElement;
