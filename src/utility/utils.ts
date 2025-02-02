@@ -131,7 +131,9 @@ export const fillWeatherInfoCardWithInformation = (): void => {
   fetchWeatherDataFromLocation(filteredValue)
   .then((info) => {
     try {
+      // When info exists, run this condition
       if (info) {
+        fillCardMainContent(info);
       } else {
         throw new Error("Error fetching data");
       }
