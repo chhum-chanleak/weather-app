@@ -10,35 +10,9 @@ export class WeatherInfoCard {
       new CardHeader().create(),
       new CardMainContent().create(),
       new CardFooter().create(),
-      new InformationList().create(),
     );
 
     return weatherInfoCard;
-  }
-}
-
-export class InformationList {
-  create(): HTMLElement {
-    const ul = document.createElement("ul");
-    ul.setAttribute("class", "weather-info-list");
-
-    const city = document.createElement("li");
-    city.className = "city";
-
-    const description = document.createElement("li");
-    description.className = "description";
-
-    const timezone = document.createElement("li");
-    timezone.className = "timezone";
-
-    utils.appendChildrenToParent(
-      ul,
-      city,
-      description,
-      timezone,
-    );
-
-    return ul;
   }
 }
 
@@ -57,8 +31,8 @@ class CardMainContent {
     const mainContent = document.createElement("div");
     mainContent.classList.add("card-main-content");
 
-    const date = document.createElement("time");
-    date.classList.add("date");
+    const currentDate = document.createElement("time");
+    currentDate.classList.add("current-date");
 
     const cityName = document.createElement("h6");
 
@@ -84,7 +58,8 @@ class CardMainContent {
 
     utils.appendChildrenToParent(
       mainContent,
-      date,
+      currentDate,
+      cityName,
       image,
       description,
     );
@@ -94,11 +69,6 @@ class CardMainContent {
 }
 
 class CardFooter {
-  constructor(
-    private theNextDay?: string,
-    private theDayAfterNextDay?: string,
-  ) {}
-
   create(): HTMLElement {
     const cardFooter = document.createElement("div");
     cardFooter.classList.add("card-footer");
