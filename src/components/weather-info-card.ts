@@ -85,24 +85,32 @@ class CardFooter {
     
     const nextDay = document.createElement("div");
     nextDay.classList.add("next-day");
+
     const day1 = document.createElement("span");
-    const image1 = document.createElement("img");
+    day1.classList.add("day1");
+    
+    const day1Image = document.createElement("img");
+    day1Image.classList.add("day1-image");
 
     const dayAfterNextDay = document.createElement("div");
     dayAfterNextDay.classList.add("day-after-next-day");
+
     const day2 = document.createElement("span");
-    const image2 = document.createElement("img");
+    day2.classList.add("day2");
+
+    const day2Image = document.createElement("img");
+    day2Image.classList.add("day2-image");
 
     utils.appendChildrenToParent(
       nextDay,
       day1,
-      image1,
+      day1Image,
     );
 
     utils.appendChildrenToParent(
       dayAfterNextDay,
       day2,
-      image2,
+      day2Image,
     );
 
     utils.appendChildrenToParent(

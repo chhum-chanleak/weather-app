@@ -14,7 +14,7 @@ type CurrentConditions = {
   conditions: string;
 };
 
-type Day = {
+export type Day = {
   cloudcover: number;
   conditions: string;
   datetime: string;
