@@ -199,7 +199,7 @@ export const removeWeatherInfoCard = (): void => {
 
 // Return a weather image source from weather conditions
 export const getWeatherImageSource = (conditions: string): number | void => {
-  switch (convertToSingleCondition(conditions)) {
+  switch (convertToSingleCondition(conditions).toLowerCase()) {
     case "clear": return weatherImageSources.clear;
     case "partially cloudy": return weatherImageSources.partlyCloudy;
     case "snow": return weatherImageSources.snow;
