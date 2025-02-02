@@ -16,7 +16,6 @@ export const handleSubmit = (): void => {
     utils.stopFormRefreshing();
     utils.fillWeatherInfoCardWithInformation();
     utils.handleLoading();
-    searchHistoryStorage.register(filteredValue, filteredValue);
 
     // Clear input field
     input.value = "";
