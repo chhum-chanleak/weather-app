@@ -34,6 +34,7 @@ type CurrentConditions = {
   visibility: number;
   windspeed: number;
   source: string;
+  conditions: string;
 };
 
 type Day = {
