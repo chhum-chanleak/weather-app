@@ -1,7 +1,7 @@
 import * as utils from "./utils";
 import { WeatherInfoCard } from "../components/weather-info-card";
 
-export const handleSubmit = (): void => {
+export const handleSearch = (): void => {
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
   const filteredValue = utils.filterInputValue(input.value);
 

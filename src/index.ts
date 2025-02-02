@@ -1,12 +1,12 @@
 import * as utils from "./utility/utils";
-import { handleSubmit } from "./utility/handlers";
+import { handleSearch } from "./utility/handlers";
 import { main } from "./components/main";
 import "../src/styles/main.css";
 
 // Apply event listeners
 const applyEvents = (): void => {
   const submitButton = document.querySelector("button[name='location']") as HTMLButtonElement;
-  submitButton.addEventListener("click", handleSubmit);
+  submitButton.addEventListener("click", handleSearch);
 };
 
 const app = () => {
