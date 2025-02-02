@@ -218,9 +218,9 @@ export const getWeatherImageSource = (conditions: string): number | void => {
 const convertToSingleCondition = (condition: string): string | undefined => {
   const firstCondition: string[] = [];
 
-  for (let i = 0; i < condition.toLowerCase().length; i += 1) {
-    if (condition.toLowerCase()[i] !== ",") {
-      firstCondition.push(condition.toLowerCase()[i]);
+  for (let i = 0; i < condition.length; i += 1) {
+    if (condition[i] !== ",") {
+      firstCondition.push(condition[i]);
     } else {
       break; // Break out of loop prematurely
     }
