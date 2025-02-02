@@ -155,8 +155,6 @@ export const fillCardMainContent = (info: WeatherInfoTypes.WeatherInfo): void =>
   cityName.textContent = info.resolvedAddress;
 
   const image = document.querySelector(".card-main-content img") as HTMLImageElement;
-  image.style.width = "200px";
-  image.style.height = "100px";
   image.src = `${weatherImageSources.thunder}`;
 
   const degree = document.querySelector(".degree") as HTMLElement;
@@ -178,12 +176,14 @@ export const fillCardFooter = (info: WeatherInfoTypes.WeatherInfo): void => {
 
   const day1Image = document.querySelector(".day1-image") as HTMLImageElement;
   day1Image.alt = nextTwoDaysInfo[0].conditions;
+  day1Image.src = `${getWeatherImageSource(nextTwoDaysInfo[0].conditions)}`;
 
   const day2 = document.querySelector(".day2") as HTMLElement;
   day2.textContent = nextTwoDaysInfo[1].datetime;
 
   const day2Image = document.querySelector(".day2-image") as HTMLImageElement;
   day2Image.alt = nextTwoDaysInfo[1].conditions;
+  day2Image.src = `${getWeatherImageSource(nextTwoDaysInfo[1].conditions)}`;
 };
 
 // Remove WeatherInfoCard component if it exists
@@ -194,5 +194,22 @@ export const removeWeatherInfoCard = (): void => {
     weatherInfoCard.remove();
   } else {
     console.log("Add new WeatherInfoCard");
+  }
+};
+
+// Return a weather image source from weather conditions
+export const getWeatherImageSource = (conditions: string) => {
+
+  switch (conditions.toLowerCase()) {
+    case "clear": return weatherImageSources.clear;
+    case "partially cloudy": return weatherImageSources.partlyCloudy;
+    case "snow": return weatherImageSources.snow;
+    case "overcast": return weatherImageSources.overcast;
+    default: 
+      try {
+        throw new Error(`Unknown weather condition '${conditions.toLowerCase()}'`);
+      } catch(error) {
+        console.error(error);
+      }
   }
 };
