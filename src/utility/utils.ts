@@ -155,7 +155,7 @@ export const fillCardMainContent = (info: WeatherInfoTypes.WeatherInfo): void =>
   cityName.textContent = info.resolvedAddress;
 
   const image = document.querySelector(".card-main-content img") as HTMLImageElement;
-  image.src = `${weatherImageSources.thunder}`;
+  image.src = `${getWeatherImageSource(info.currentConditions.conditions)}`;
 
   const degree = document.querySelector(".degree") as HTMLElement;
   degree.textContent = `${info.currentConditions.temp} °C`;
