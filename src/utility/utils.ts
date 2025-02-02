@@ -161,7 +161,7 @@ export const fillCardMainContent = (info: WeatherInfoTypes.WeatherInfo): void =>
   degree.textContent = `${info.currentConditions.temp} °C`;
 
   const conditionHeader = document.querySelector(".condition-header") as HTMLElement;
-  conditionHeader.textContent = info.currentConditions.conditions;
+  conditionHeader.textContent = `${convertToSingleCondition(info.currentConditions.conditions)}`;
 
   const conditionDescription = document.querySelector(".condition-description") as HTMLElement;
   conditionDescription.textContent = info.description;
@@ -222,7 +222,7 @@ const convertToSingleCondition = (condition: string): string | undefined => {
     if (condition.toLowerCase()[i] !== ",") {
       firstCondition.push(condition.toLowerCase()[i]);
     } else {
-      break;
+      break; // Break out of loop prematurely
     }
   }
 
