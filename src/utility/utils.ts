@@ -93,6 +93,7 @@ export const fillWeatherInfoCardWithInformation = (): void => {
       // When info exists, run this condition
       if (info) {
         fillCardMainContent(info);
+        fillCardFooter(info);
         hideLoading(); // Stop displaying Loading component when the weather information is shown
       } else {
         throw new Error("Error fetching data");
