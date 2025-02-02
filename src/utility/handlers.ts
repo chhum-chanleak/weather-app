@@ -9,15 +9,6 @@ export const handleSubmit = (): void => {
   // Clear the reject message
   utils.removeRejectMessageTextContent();
 
-  // Reject input value when the input value already exists
-  // Example: You cannot fetch 'Paris' when you have already fetched it once.
-  try {
-    utils.rejectAlreadyExistsInputValue(filteredValue);
-  } catch(error) {
-    console.log(error);
-    return;
-  }
-
   // Check whether input exists and input.value is not empty
   if (utils.checkExistence(input) && filteredValue !== "") {
     utils.addCardToWeatherInfoCards(new WeatherInfoCard().create(filteredValue));
