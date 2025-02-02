@@ -21,6 +21,7 @@ export const fetchWeatherDataFromLocation = async (location: string): Promise<We
   }
 };
 
+// Return only necessary data
 export const getFilteredWeatherData = ({ 
   resolvedAddress,
   currentConditions,
@@ -92,6 +93,7 @@ export const fillWeatherInfoCardWithInformation = (): void => {
       // When info exists, run this condition
       if (info) {
         fillCardMainContent(info);
+        hideLoading(); // Stop displaying Loading component when the weather information is shown
       } else {
         throw new Error("Error fetching data");
       }
