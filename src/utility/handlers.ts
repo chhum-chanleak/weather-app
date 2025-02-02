@@ -1,6 +1,5 @@
 import * as utils from "./utils";
 import { WeatherInfoCard } from "../components/weather-info-card";
-import { searchHistoryStorage } from "../data/data";
 
 export const handleSubmit = (): void => {
   const input = document.querySelector("input[name='location']") as HTMLInputElement;

@@ -135,16 +135,11 @@ export const handleLoading = () => {
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
   const filteredValue = filterInputValue(input.value);
 
-  const city = document.querySelector(`.weather-info-card.${filteredValue} li.city`) as HTMLElement;
+  const cityName = document.querySelector(`.weather-info-card.${filteredValue} h6.city-name`) as HTMLElement;
 
-  // Check whether fetching data is done
-  if (city.textContent === "") {
+  // Display Loading component when the data is being fetched
+  if (cityName.textContent === "") {
     showLoading();
-
-    // Hide Loading component after 1.5 seconds
-    setTimeout(() => {
-      hideLoading();
-    }, 2000);
   }  
 };
 
