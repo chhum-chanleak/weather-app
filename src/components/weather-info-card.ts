@@ -7,6 +7,8 @@ export class WeatherInfoCard {
 
     utils.appendChildrenToParent(
       weatherInfoCard,
+      new CardHeader().create(),
+      new CardMainContent().create(),
       new InformationList().create(),
     );
 
@@ -36,5 +38,14 @@ export class InformationList {
     );
 
     return ul;
+  }
+}
+
+class CardHeader {
+  create(): HTMLElement {
+    const cardHeader = document.createElement("h2");
+    cardHeader.textContent = "TODAY";
+
+    return cardHeader;
   }
 }
