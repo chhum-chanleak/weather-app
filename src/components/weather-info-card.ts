@@ -38,7 +38,9 @@ class CardMainContent {
 
     const image = document.createElement("img");
 
-    const description = document.createElement("div");
+    const descriptionContainer = document.createElement("div");
+    descriptionContainer.classList.add("description-container");
+    
     const degree = document.createElement("span");
     const condition = document.createElement("div");
     const conditionHeader = document.createElement("h6");
@@ -51,7 +53,7 @@ class CardMainContent {
     );
 
     utils.appendChildrenToParent(
-      description,
+      descriptionContainer,
       degree,
       condition,
     );
@@ -61,7 +63,7 @@ class CardMainContent {
       currentDate,
       cityName,
       image,
-      description,
+      descriptionContainer,
     );
 
     return mainContent;
