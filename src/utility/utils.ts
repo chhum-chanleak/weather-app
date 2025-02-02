@@ -215,7 +215,7 @@ export const getWeatherImageSource = (conditions: string): number | void => {
 
 // Convert and return multiple-condition to single-condition
 // Example: 'Snow, Partly cloudy' will be converted to just 'Snow'
-const convertToSingleCondition = (condition: string): string | undefined => {
+const convertToSingleCondition = (condition: string): string => {
   const firstCondition: string[] = [];
 
   for (let i = 0; i < condition.length; i += 1) {
