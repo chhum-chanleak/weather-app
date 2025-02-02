@@ -11,6 +11,7 @@ export const handleSubmit = (): void => {
 
   // Check whether input exists and input.value is not empty
   if (utils.checkExistence(input) && filteredValue !== "") {
+    utils.removeWeatherInfoCard(); // Remove old WeatherInfoCard before adding a new one
     utils.addCardToWeatherInfoCards(new WeatherInfoCard().create(filteredValue));
     utils.stopFormRefreshing();
     utils.fillWeatherInfoCardWithInformation();
