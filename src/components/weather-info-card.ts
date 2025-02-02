@@ -49,3 +49,42 @@ class CardHeader {
     return cardHeader;
   }
 }
+
+class CardMainContent {
+  create(): HTMLElement {    
+    const mainContent = document.createElement("div");
+    mainContent.classList.add("card-main-content");
+
+    const date = document.createElement("time");
+    date.classList.add("date");
+
+    const image = document.createElement("img");
+
+    const description = document.createElement("div");
+    const degree = document.createElement("span");
+    const condition = document.createElement("div");
+    const conditionHeader = document.createElement("h6");
+    const conditionDescription = document.createElement("p");
+
+    utils.appendChildrenToParent(
+      condition,
+      conditionHeader,
+      conditionDescription,
+    );
+
+    utils.appendChildrenToParent(
+      description,
+      degree,
+      condition,
+    );
+
+    utils.appendChildrenToParent(
+      mainContent,
+      date,
+      image,
+      description,
+    );
+
+    return mainContent;
+  }
+}
