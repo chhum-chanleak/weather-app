@@ -1,4 +1,3 @@
-import { searchHistoryStorage } from "../data/data";
 import { weatherImageSources } from "../data/images";
 
 // Fetch weather data of a location
@@ -189,16 +188,6 @@ export const handleLoading = () => {
     }, 2000);
   }  
 };
-
-// Reject input value when the input value already exists
-// Example: You cannot fetch 'Paris' when you have already fetched it once.
-export const rejectAlreadyExistsInputValue = (inputValue: string):void => {
-  if (searchHistoryStorage.getSearchHistoryList().has(inputValue)) {
-    // Show a reject message when the input value already exists
-    setRejectMessageTextContent();
-    throw new Error(`${inputValue} already exists`);
-  }
-}
 
 // Set text content for rejectMessage
 export const setRejectMessageTextContent = (): void => {
