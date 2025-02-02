@@ -35,16 +35,24 @@ class CardMainContent {
     currentDate.classList.add("current-date");
 
     const cityName = document.createElement("h6");
+    cityName.classList.add("city-name");
 
     const image = document.createElement("img");
 
     const descriptionContainer = document.createElement("div");
     descriptionContainer.classList.add("description-container");
-    
+
     const degree = document.createElement("span");
+    degree.classList.add("degree");
+
     const condition = document.createElement("div");
+    condition.classList.add("condition");
+
     const conditionHeader = document.createElement("h6");
-    const conditionDescription = document.createElement("p");
+    conditionHeader.classList.add("condition-header");
+
+    const conditionDescription = document.createElement("small");
+    conditionDescription.classList.add("condition-description");
 
     utils.appendChildrenToParent(
       condition,
