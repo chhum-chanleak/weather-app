@@ -216,3 +216,26 @@ export const removeRejectMessageTextContent = (): void => {
   const rejectMessage = document.querySelector("span.reject-message") as HTMLSpanElement;
   rejectMessage.textContent = "";
 };
+
+// Fill main content of the weather card with information
+export const fillCardMainContent = (info: WeatherInfo) => {
+  const currentDate = document.querySelector(".current-date") as HTMLElement;
+  currentDate.textContent = info.days[0].datetime;
+
+  const cityName = document.querySelector(".city-name") as HTMLElement;
+  cityName.textContent = info.resolvedAddress;
+
+  const image = document.querySelector(".card-main-content img") as HTMLImageElement;
+  image.style.width = "200px";
+  image.style.height = "100px";
+  image.src = `${weatherImageSources.thunder}`;
+
+  const degree = document.querySelector(".degree") as HTMLElement;
+  degree.textContent = `${info.currentConditions.temp} deg`;
+
+  const conditionHeader = document.querySelector(".condition-header") as HTMLElement;
+  conditionHeader.textContent = info.currentConditions.conditions;
+
+  const conditionDescription = document.querySelector(".condition-description") as HTMLElement;
+  conditionDescription.textContent = info.description;
+};
