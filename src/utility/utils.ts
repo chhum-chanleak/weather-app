@@ -1,4 +1,5 @@
 import { searchHistoryStorage } from "../data/data";
+import { weatherImageSources } from "../data/images";
 
 // Fetch weather data of a location
 export const fetchWeatherDataFromLocation = async (location: string): Promise<WeatherInfo | null> => {
@@ -129,17 +130,10 @@ export const fillWeatherInfoCardWithInformation = (): void => {
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
   const filteredValue = filterInputValue(input.value);
 
-  const city = document.querySelector(`.weather-info-card.${filteredValue} li.city`) as HTMLElement;
-  const description = document.querySelector(`.weather-info-card.${filteredValue} li.description`) as HTMLElement;
-  const timezone = document.querySelector(`.weather-info-card.${filteredValue} li.timezone`) as HTMLElement;
-
   fetchWeatherDataFromLocation(filteredValue)
   .then((info) => {
     try {
       if (info) {
-        city.textContent = `${info.resolvedAddress}`;
-        description.textContent = `${info.description}`;
-        timezone.textContent = `${info.timezone}`;
       } else {
         throw new Error("Error fetching data");
       }
