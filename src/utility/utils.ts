@@ -210,7 +210,7 @@ export const setRejectMessageTextContent = (): void => {
   const filteredValue = filterInputValue(input.value);
 
   if (rejectMessage) {
-    rejectMessage.textContent = `'${filteredValue}' already exists. Search another location.`;
+    rejectMessage.textContent = `'${filteredValue}' already exists! Search another location.`;
   } else {
     console.warn("rejectMessage not found");
   }

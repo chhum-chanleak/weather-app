@@ -9,6 +9,7 @@ export class WeatherInfoCard {
       weatherInfoCard,
       new CardHeader().create(),
       new CardMainContent().create(),
+      new CardFooter().create(),
       new InformationList().create(),
     );
 
@@ -44,6 +45,7 @@ export class InformationList {
 class CardHeader {
   create(): HTMLElement {
     const cardHeader = document.createElement("h2");
+    cardHeader.classList.add("card-header");
     cardHeader.textContent = "TODAY";
 
     return cardHeader;
@@ -57,6 +59,8 @@ class CardMainContent {
 
     const date = document.createElement("time");
     date.classList.add("date");
+
+    const cityName = document.createElement("h6");
 
     const image = document.createElement("img");
 
@@ -86,5 +90,47 @@ class CardMainContent {
     );
 
     return mainContent;
+  }
+}
+
+class CardFooter {
+  constructor(
+    private theNextDay?: string,
+    private theDayAfterNextDay?: string,
+  ) {}
+
+  create(): HTMLElement {
+    const cardFooter = document.createElement("div");
+    cardFooter.classList.add("card-footer");
+    
+    const nextDay = document.createElement("div");
+    nextDay.classList.add("next-day");
+    const day1 = document.createElement("span");
+    const image1 = document.createElement("img");
+
+    const dayAfterNextDay = document.createElement("div");
+    dayAfterNextDay.classList.add("day-after-next-day");
+    const day2 = document.createElement("span");
+    const image2 = document.createElement("img");
+
+    utils.appendChildrenToParent(
+      nextDay,
+      day1,
+      image1,
+    );
+
+    utils.appendChildrenToParent(
+      dayAfterNextDay,
+      day2,
+      image2,
+    );
+
+    utils.appendChildrenToParent(
+      cardFooter,
+      nextDay,
+      dayAfterNextDay,
+    );
+
+    return cardFooter;
   }
 }
