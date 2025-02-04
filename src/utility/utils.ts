@@ -85,9 +85,9 @@ export const addCardToWeatherInfoCards = (weatherInfoCard: HTMLElement): void =>
 
 export const fillWeatherInfoCardWithInformation = (): void => {
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
-  const filteredValue = filterInputValue(input.value);
+  const filteredInputValue = filterInputValue(input.value);
 
-  fetchWeatherDataFromLocation(filteredValue)
+  fetchWeatherDataFromLocation(filteredInputValue)
   .then((info) => {
     try {
       // When info exists, run this condition
@@ -137,9 +137,9 @@ export const showLoading = (): void => {
 // Display Loading component when fetching data from the server and hide it when the data is fetched successfully
 export const handleLoading = () => {
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
-  const filteredValue = filterInputValue(input.value);
+  const filteredInputValue = filterInputValue(input.value);
 
-  const cityName = document.querySelector(`.weather-info-card.${filteredValue} h6.city-name`) as HTMLElement;
+  const cityName = document.querySelector(`.weather-info-card.${filteredInputValue} h6.city-name`) as HTMLElement;
 
   // Display Loading component when the data is being fetched
   if (cityName.textContent === "") {
@@ -242,7 +242,7 @@ const convertToSingleCondition = (condition: string): string => {
   return firstCondition.join("");
 };
 
-// Set the temperature unit to °F when it is greather 60 degree.
+// Set the temperature unit to °F when it is greater 60 degree.
 const setTemperatureUnitAccordingly = (temp: number) => {
   const temperature = document.querySelector(".temperature") as HTMLSpanElement;
 
