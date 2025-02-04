@@ -298,3 +298,14 @@ export const switchTemperatureUnit = (temp: number): void => {
     setTemperatureUnitAccordingly(temp);
   }
 };
+
+
+// Convert the element's text content to number
+const convertToNumber = (element: HTMLElement): number | undefined => {
+  // If element's text content is not empty
+  if (element.textContent) {
+    return +element.textContent; // Convert element's text content to number;
+  }
+
+  return undefined;
+};
