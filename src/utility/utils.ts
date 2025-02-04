@@ -288,24 +288,23 @@ const setSelectDefaultOption = (TemperatureUnit: string): void => {
   }
 };
 
-// Switch temperature unit according to .select-temperature-unit's value
-export const switchTemperatureUnit = (temp: number): void => {
-  const select = document.querySelector(".select-temperature-unit") as HTMLSelectElement;
-
-  if (select.value === "celsius") {
-    setTemperatureUnitAccordingly(temp);
-  } else {
-    setTemperatureUnitAccordingly(temp);
-  }
-};
-
-
 // Convert the element's text content to number
-const convertToNumber = (element: HTMLElement): number | undefined => {
+const convertToNumber = (element: HTMLElement): number => {
   // If element's text content is not empty
-  if (element.textContent) {
-    return +element.textContent; // Convert element's text content to number;
-  }
-
-  return undefined;
+  return Number(element.textContent); // Convert element's text content to number;
 };
+
+export const switchTemperatureUnit = (): void => {
+  const select = document.querySelector(".select-temperature-unit") as HTMLSelectElement;
+  const tempSpan = document.querySelector(".temp") as HTMLElement;
+  const temperatureValue = convertToNumber(tempSpan);
+
+  // Check current temperature unit
+  if (getTemperatureUnit(temperatureValue))
+
+  // When switch from fahrenheit to celsius (onchange event)
+  if (select.value === "celsius") {
+    tempSpan.textContent = `${}`
+  }
+};
+
