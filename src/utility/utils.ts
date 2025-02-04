@@ -96,6 +96,7 @@ export const fillWeatherInfoCardWithInformation = (): void => {
         fillCardFooter(info);
         hideLoading(); // Stop displaying Loading component when the weather information is shown
         setTemperatureUnitAccordingly(info.currentConditions.temp);
+        setSelectDefaultOption(getTemperatureUnit(info.currentConditions.temp));
       } else {
         throw new Error("Error fetching data");
       }
@@ -275,7 +276,7 @@ const getTemperatureUnit = (temp: number): string => {
   return "celsius";
 };
 
-// Set the default option of select according to temperature unit
+// Set the default option of select element according to temperature unit
 const setSelectDefaultOption = (TemperatureUnit: string): void => {
   const celsiusOption = document.querySelector(".celsius-option") as HTMLOptionElement;
   const fahrenheitOption = document.querySelector(".fahrenheit-option") as HTMLOptionElement;
