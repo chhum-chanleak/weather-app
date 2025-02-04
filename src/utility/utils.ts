@@ -7,6 +7,8 @@ export const fetchWeatherDataFromLocation = async (location: string): Promise<We
     const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${filterInputValue(location)}?key=58BNYSLW5JBTD7K5WWJ46YRBL`);
 
     if (!response.ok) {
+      hideLoading(); // Hide Loading component when Bad Request takes place
+      removeWeatherInfoCard();
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
