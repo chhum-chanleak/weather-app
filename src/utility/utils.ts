@@ -266,3 +266,11 @@ const convertToCelsius = (fahrenheit: number): number  => {
   return (fahrenheit - 32) * (5 / 9);
 };
 
+// Return temperature unit of location
+const getTemperatureUnit = (temp: number): string => {
+  if (temp > 60) {
+    return "fahrenheit";
+  }
+
+  return "celsius";
+};
