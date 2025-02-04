@@ -148,8 +148,9 @@ export const handleLoading = () => {
 
 // Fill main content of the WeatherInfoCard component with information
 export const fillCardMainContent = (info: WeatherInfoTypes.WeatherInfo): void => {
+  const date = new Date();
   const currentDate = document.querySelector(".current-date") as HTMLElement;
-  currentDate.textContent = info.days[0].datetime;
+  currentDate.textContent = date.toDateString();
 
   const cityName = document.querySelector(".city-name") as HTMLElement;
   cityName.textContent = info.resolvedAddress;
@@ -169,17 +170,28 @@ export const fillCardMainContent = (info: WeatherInfoTypes.WeatherInfo): void =>
 
 // Fill footer of the WeatherInfoCard component with information
 export const fillCardFooter = (info: WeatherInfoTypes.WeatherInfo): void => {
+
+  const date1 = new Date();
+  date1.setDate(date1.getDate() + 1); // Move to the next day
+
+  const nextDay = date1.toDateString();
+
+  const date2 = new Date();
+  date2.setDate(date2.getDate() + 2); // Move to the day after next day
+
+  const dayAfterNextDay = date2.toDateString();
+
   const nextTwoDaysInfo: WeatherInfoTypes.Day[] = [info.days[1], info.days[2]];
 
   const day1 = document.querySelector(".day1") as HTMLElement;
-  day1.textContent = nextTwoDaysInfo[0].datetime;
+  day1.textContent = `${nextDay}`;
 
   const day1Image = document.querySelector(".day1-image") as HTMLImageElement;
   day1Image.alt = nextTwoDaysInfo[0].conditions;
   day1Image.src = `${getWeatherImageSource(nextTwoDaysInfo[0].conditions)}`;
 
   const day2 = document.querySelector(".day2") as HTMLElement;
-  day2.textContent = nextTwoDaysInfo[1].datetime;
+  day2.textContent = `${dayAfterNextDay}`;
 
   const day2Image = document.querySelector(".day2-image") as HTMLImageElement;
   day2Image.alt = nextTwoDaysInfo[1].conditions;
@@ -213,7 +225,7 @@ export const getWeatherImageSource = (conditions: string): number | void => {
   }
 };
 
-// Convert and return multiple-condition to single-condition
+// Convert a multiple-condition and return a single-condition
 // Example: 'Snow, Partly cloudy' will be converted to just 'Snow'
 const convertToSingleCondition = (condition: string): string => {
   const firstCondition: string[] = [];
