@@ -300,7 +300,7 @@ export const switchTemperatureUnit = (): void => {
   const tempSpan = document.querySelector(".temp") as HTMLElement;
   const tempUnit = document.querySelector(".temp-unit") as HTMLElement;
 
-  // 
+  // If tempSpan exists
   if (tempSpan) {
     const temperatureValue = convertToNumber(tempSpan);
 
@@ -321,3 +321,14 @@ export const switchTemperatureUnit = (): void => {
     }
   }
 }
+
+// Show a Bad Request message
+const showBadRequestMessage = (location: string) => {
+  const message = document.querySelector(".bad-request-message .message") as HTMLElement;
+
+  if (message) {
+    message.textContent = `'${location}' not found`;
+  } else {
+    console.error(".message not found");
+  }  
+};
