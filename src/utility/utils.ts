@@ -159,7 +159,7 @@ export const fillCardMainContent = (info: WeatherInfoTypes.WeatherInfo): void =>
   image.src = `${getWeatherImageSource(info.currentConditions.conditions)}`;
 
   const temperature = document.querySelector(".temperature") as HTMLElement;
-  temperature.textContent = `${info.currentConditions.temp}°`;
+  temperature.textContent = `${info.currentConditions.temp} °C`;
 
   const conditionHeader = document.querySelector(".condition-header") as HTMLElement;
   conditionHeader.textContent = `${convertToSingleCondition(info.currentConditions.conditions)}`;
@@ -180,7 +180,6 @@ export const fillCardFooter = (info: WeatherInfoTypes.WeatherInfo): void => {
   date2.setDate(date2.getDate() + 2); // Move to the day after next day
 
   const dayAfterNextDay = date2.toDateString();
-
   const nextTwoDaysInfo: WeatherInfoTypes.Day[] = [info.days[1], info.days[2]];
 
   const day1 = document.querySelector(".day1") as HTMLElement;
@@ -240,4 +239,16 @@ const convertToSingleCondition = (condition: string): string => {
   }
 
   return firstCondition.join("");
+};
+
+// Set the temperature unit to °F when it is greather 60 degree.
+const setTemperatureUnitAccordingly = (temp: number) => {
+  const temperature = document.querySelector(".temperature") as HTMLSpanElement;
+
+  // Assume the temperature is in Fahrenheit (°F) when it is greater than 60 degree
+  if (temp > 60) {
+    temperature.textContent = `${temp} °F`;
+  } else { // If it is less than 60 degree, then assume it as celsius
+    temperature.textContent = `${temp} °C`;
+  }
 };
