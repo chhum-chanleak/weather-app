@@ -25,7 +25,7 @@ export class FormWeather {
 
     const celsiusOption = document.createElement("option");
     celsiusOption.classList.add("celsius-option");
-    celsiusOption.value = "°C";
+    celsiusOption.value = "celsius";
     celsiusOption.textContent = "°C";
 
     appendChildrenToParent(
