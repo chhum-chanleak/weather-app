@@ -287,3 +287,14 @@ const setSelectDefaultOption = (TemperatureUnit: string): void => {
     fahrenheitOption.selected = true;
   }
 };
+
+// Switch temperature unit according to .select-temperature-unit's value
+const switchTemperatureUnit = (temp: number): void => {
+  const select = document.querySelector(".select-temperature-unit") as HTMLSelectElement;
+
+  if (select.value === "celsius") {
+    setTemperatureUnitAccordingly(temp);
+  } else {
+    setTemperatureUnitAccordingly(temp);
+  }
+};
