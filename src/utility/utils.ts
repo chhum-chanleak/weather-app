@@ -216,6 +216,7 @@ export const getWeatherImageSource = (conditions: string): number | void => {
     case "partially cloudy": return weatherImageSources.partlyCloudy;
     case "snow": return weatherImageSources.snow;
     case "overcast": return weatherImageSources.overcast;
+    case "rain": return weatherImageSources.rain;
     default: 
       try {
         throw new Error(`Unknown weather condition '${convertToSingleCondition(conditions)}'`);
