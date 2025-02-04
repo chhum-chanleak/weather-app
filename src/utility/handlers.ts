@@ -19,3 +19,7 @@ export const handleSearch = (): void => {
     console.warn("Input is empty. Write something in the input field.");
   }
 };
+
+export const handleSelect = () => {
+  utils.switchTemperatureUnit();
+};
