@@ -43,8 +43,8 @@ class CardMainContent {
     const descriptionContainer = document.createElement("div");
     descriptionContainer.classList.add("description-container");
 
-    const degree = document.createElement("span");
-    degree.classList.add("degree");
+    const temperature = document.createElement("span");
+    temperature.classList.add("temperature");
 
     const condition = document.createElement("div");
     condition.classList.add("condition");
@@ -63,7 +63,7 @@ class CardMainContent {
 
     utils.appendChildrenToParent(
       descriptionContainer,
-      degree,
+      temperature,
       condition,
     );
 

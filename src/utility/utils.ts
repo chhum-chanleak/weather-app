@@ -158,8 +158,8 @@ export const fillCardMainContent = (info: WeatherInfoTypes.WeatherInfo): void =>
   const image = document.querySelector(".card-main-content img") as HTMLImageElement;
   image.src = `${getWeatherImageSource(info.currentConditions.conditions)}`;
 
-  const degree = document.querySelector(".degree") as HTMLElement;
-  degree.textContent = `${info.currentConditions.temp} °C`;
+  const temperature = document.querySelector(".temperature") as HTMLElement;
+  temperature.textContent = `${info.currentConditions.temp}°`;
 
   const conditionHeader = document.querySelector(".condition-header") as HTMLElement;
   conditionHeader.textContent = `${convertToSingleCondition(info.currentConditions.conditions)}`;
