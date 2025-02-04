@@ -46,6 +46,12 @@ class CardMainContent {
     const temperature = document.createElement("div");
     temperature.classList.add("temperature");
 
+    const temp = document.createElement("span");
+    temp.classList.add("temp");
+
+    const tempUnit = document.createElement("span");
+    tempUnit.classList.add("temp-unit");
+
     const condition = document.createElement("div");
     condition.classList.add("condition");
 
@@ -54,6 +60,12 @@ class CardMainContent {
 
     const conditionDescription = document.createElement("small");
     conditionDescription.classList.add("condition-description");
+
+    utils.appendChildrenToParent(
+      temperature,
+      temp,
+      tempUnit,
+    );
 
     utils.appendChildrenToParent(
       condition,
