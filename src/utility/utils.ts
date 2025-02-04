@@ -242,13 +242,16 @@ const convertToSingleCondition = (condition: string): string => {
 
 // Set the temperature unit to °F when it is greater 60 degree.
 const setTemperatureUnitAccordingly = (temp: number): void => {
-  const temperature = document.querySelector(".temperature") as HTMLSpanElement;
+  const tempSpan = document.querySelector(".temp") as HTMLElement;
+  const tempUnit = document.querySelector(".temp-unit") as HTMLElement;
 
   // Assume the temperature is in Fahrenheit (°F) when it is greater than 60 degree
   if (temp >= 60) {
-    temperature.textContent = `${temp} °F`;
+    tempSpan.textContent = `${temp}`;
+    tempUnit.textContent = "°F";
   } else { // If it is less than 60 degree, then assume it as celsius
-    temperature.textContent = `${temp} °C`;
+    tempSpan.textContent = `${temp}`;
+    tempUnit.textContent = "°C";
   }
 };
 
