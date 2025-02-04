@@ -15,7 +15,7 @@ export const fetchWeatherDataFromLocation = async (location: string): Promise<We
 
     return getFilteredWeatherData(data);
   } catch(error) {
-    console.log("Failed to fetch weather data:", error);
+    console.log(error);
 
     return null;
   }
@@ -98,7 +98,7 @@ export const fillWeatherInfoCardWithInformation = (): void => {
         setTemperatureUnitAccordingly(info.currentConditions.temp);
         setSelectDefaultOption(getTemperatureUnit(info.currentConditions.temp));
       } else {
-        throw new Error("Error fetching data");
+        throw new Error("Failed fetching data");
       }
     } catch(error){
       console.log(error);
