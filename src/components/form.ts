@@ -14,15 +14,32 @@ export class FormWeather {
     input.type = "text";
     input.name = "location";
 
-    const rejectMessage = document.createElement("span");
-    rejectMessage.classList.add("reject-message");
+    const select = document.createElement("select");
+    select.setAttribute("class", "select-temperature-unit");
+    select.setAttribute("name", "select-temperature-unit");
+
+    const fahrenheitOption = document.createElement("option");
+    fahrenheitOption.classList.add("fahrenheit-option");
+    fahrenheitOption.value = "fahrenheit";
+    fahrenheitOption.textContent = "°F";
+
+    const celsiusOption = document.createElement("option");
+    celsiusOption.classList.add("celsius-option");
+    celsiusOption.value = "°C";
+    celsiusOption.textContent = "°C";
+
+    appendChildrenToParent(
+      select,
+      fahrenheitOption,
+      celsiusOption,
+    );
 
     // Append elements to FormWeather component
     appendChildrenToParent(
-      formWeather,
-      rejectMessage,
+      formWeather,      
       input,
       submitButton,
+      select,
     );
 
     return formWeather;
