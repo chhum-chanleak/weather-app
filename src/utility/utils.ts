@@ -247,7 +247,7 @@ const setTemperatureUnitAccordingly = (temp: number): void => {
   const temperature = document.querySelector(".temperature") as HTMLSpanElement;
 
   // Assume the temperature is in Fahrenheit (°F) when it is greater than 60 degree
-  if (temp > 60) {
+  if (temp >= 60) {
     temperature.textContent = `${temp} °F`;
   } else { // If it is less than 60 degree, then assume it as celsius
     temperature.textContent = `${temp} °C`;
@@ -268,9 +268,21 @@ const convertToCelsius = (fahrenheit: number): number  => {
 
 // Return temperature unit of location
 const getTemperatureUnit = (temp: number): string => {
-  if (temp > 60) {
+  if (temp >= 60) {
     return "fahrenheit";
   }
 
   return "celsius";
+};
+
+// Set the default option of select according to temperature unit
+const setSelectDefaultOption = (TemperatureUnit: string): void => {
+  const celsiusOption = document.querySelector(".celsius-option") as HTMLOptionElement;
+  const fahrenheitOption = document.querySelector(".fahrenheit-option") as HTMLOptionElement;
+
+  if (TemperatureUnit === "celsius") {
+    celsiusOption.selected = true;
+  } else {
+    fahrenheitOption.selected = true;
+  }
 };
