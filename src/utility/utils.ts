@@ -290,21 +290,28 @@ const setSelectDefaultOption = (TemperatureUnit: string): void => {
 
 // Convert the element's text content to number
 const convertToNumber = (element: HTMLElement): number => {
-  // If element's text content is not empty
   return Number(element.textContent); // Convert element's text content to number;
 };
 
 export const switchTemperatureUnit = (): void => {
   const select = document.querySelector(".select-temperature-unit") as HTMLSelectElement;
   const tempSpan = document.querySelector(".temp") as HTMLElement;
+  const tempUnit = document.querySelector(".temp-unit") as HTMLElement;
   const temperatureValue = convertToNumber(tempSpan);
 
-  // Check current temperature unit
-  if (getTemperatureUnit(temperatureValue))
-
-  // When switch from fahrenheit to celsius (onchange event)
-  if (select.value === "celsius") {
-    tempSpan.textContent = `${}`
+  // When current temperature is celsius
+  if (getTemperatureUnit(temperatureValue) === "celsius") {
+    // When switch select option from celsius to fahrenheit (onchange event)
+   if (select.value === "fahrenheit") {
+     tempSpan.textContent = `${convertToFahrenheit(temperatureValue)}`;
+     tempUnit.textContent = "°F";
+   } 
   }
-};
 
+  // When current temperature unit is fahrenheit
+  if (getTemperatureUnit(temperatureValue) === "fahrenheit") {
+    // When switch select option from fahrenheit to celsius (onchange event)
+    tempSpan.textContent = `${convertToCelsius(temperatureValue)}`;
+    tempUnit.textContent = "°C";
+  }
+}
