@@ -95,6 +95,7 @@ export const fillWeatherInfoCardWithInformation = (): void => {
         fillCardMainContent(info);
         fillCardFooter(info);
         hideLoading(); // Stop displaying Loading component when the weather information is shown
+        setTemperatureUnitAccordingly(info.currentConditions.temp);
       } else {
         throw new Error("Error fetching data");
       }
