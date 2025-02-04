@@ -258,13 +258,13 @@ const setTemperatureUnitAccordingly = (temp: number): void => {
 // Convert celsius and return fahrenheit
 // Example: 20°C to 68°F
 const convertToFahrenheit = (celsius: number): number  => {
-  return (celsius * (9 / 5)) + 32;
+  return Number(((celsius * (9 / 5)) + 32).toFixed(1));
 };
 
 // Convert fahrenheit and return celsius
 // Example: 68°F to 20°C
 const convertToCelsius = (fahrenheit: number): number  => {
-  return (fahrenheit - 32) * (5 / 9);
+  return Number(((fahrenheit - 32) * (5 / 9)).toFixed(1));
 };
 
 // Return temperature unit of location
