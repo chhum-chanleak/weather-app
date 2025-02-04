@@ -43,7 +43,7 @@ class CardMainContent {
     const descriptionContainer = document.createElement("div");
     descriptionContainer.classList.add("description-container");
 
-    const temperature = document.createElement("span");
+    const temperature = document.createElement("div");
     temperature.classList.add("temperature");
 
     const condition = document.createElement("div");
