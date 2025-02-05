@@ -129,12 +129,6 @@ export const filterInputValue = (str: string): string => {
   return filteredArray.join("");
 };
 
-// Show Loading component
-export const showLoading = (): void => {
-  const loading = document.querySelector(".loading") as HTMLElement;
-  loading.style.display = "flex";
-};
-
 // Display Loading component when fetching data from the server and hide it when the data is fetched successfully
 export const handleLoading = () => {
   const input = document.querySelector("input[name='location']") as HTMLInputElement;
