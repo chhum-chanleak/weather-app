@@ -101,6 +101,7 @@ export const fillWeatherInfoCardWithInformation = (): void => {
         fillCardMainContent(info);
         fillCardFooter(info);
         hideElementByClassName("main", "loading") // Stop displaying Loading component when the weather information is shown
+        hideElementByClassName("main", "bad-request-message");
         setTemperatureUnitAccordingly(info.currentConditions.temp);
         setSelectDefaultOption(getTemperatureUnit(info.currentConditions.temp));
       } else {
