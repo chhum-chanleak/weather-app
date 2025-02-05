@@ -13,6 +13,7 @@ export class FormWeather {
     const input = document.createElement("input");
     input.type = "text";
     input.name = "location";
+    input.placeholder = "Ex: New York";
 
     const select = document.createElement("select");
     select.setAttribute("class", "select-temperature-unit");
