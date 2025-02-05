@@ -1,4 +1,5 @@
 import * as utils from "../utility/utils";
+import "../styles/weather-info-cards.css";
 
 export class WeatherInfoCards {
   create(): HTMLElement {
