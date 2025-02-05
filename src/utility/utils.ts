@@ -338,7 +338,7 @@ const showBadRequestMessage = (location: string): void => {
 };
 
 // Hide elements by their class names
-const hideElementByClassName = (parentClass: string, elementClass: string): void => {
+export const hideElementByClassName = (parentClass: string, elementClass: string): void => {
   const element = document.querySelector(`.${parentClass} .${elementClass}`) as HTMLElement;
 
   // If element exists, then hide the element
