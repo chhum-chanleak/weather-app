@@ -16,7 +16,7 @@ export const handleSearch = (): void => {
     // Clear input field
     input.value = "";
   } else {
-    console.warn("Input is empty. Write something in the input field.");
+    console.warn("Input field is empty. Search a location in the input field.");
   }
 };
 

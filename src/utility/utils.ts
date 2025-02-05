@@ -326,12 +326,23 @@ export const switchTemperatureUnit = (): void => {
 }
 
 // Show a Bad Request message
-const showBadRequestMessage = (location: string) => {
+const showBadRequestMessage = (location: string): void => {
   const message = document.querySelector(".bad-request-message .message") as HTMLElement;
 
+  // If element exists, then hide the element
   if (message) {
-    message.textContent = `'${location}' not found`;
+    message.textContent = `'${location}' not found. Please try to enter a correct location.`;
   } else {
     console.error(".message not found");
   }  
+};
+
+// Hide elements by their class names
+const hideElementByClassName = (parent: string, className: string): void => {
+  const element = document.querySelector(`.${parent} .${className}`) as HTMLElement;
+
+  // If element exists, then hide the element
+  if (element) {
+    element.style.display = "none";
+  }
 };
