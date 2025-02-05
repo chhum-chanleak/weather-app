@@ -1,5 +1,5 @@
 import { appendChildrenToParent } from "../utility/utils";
-import { BadRequestMessage } from "./bad_request_message";
+import { BadRequestMessage } from "./bad-request-message";
 import { FormWeather } from "./form";
 import { Loading } from "./loading";
 import { WeatherInfoCards } from "./weather-info-cards";
