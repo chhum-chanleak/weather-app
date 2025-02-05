@@ -9,7 +9,7 @@ export const fetchWeatherDataFromLocation = async (location: string): Promise<We
     // Check for HTTP errors
     if (!response.ok) {
       removeWeatherInfoCard();
-      hideLoading(); // Hide Loading component when Bad Request takes place
+      hideElementByClassName("main", "loading"); // Hide Loading component when Bad Request takes place
       showBadRequestMessage(location);
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -338,8 +338,8 @@ const showBadRequestMessage = (location: string): void => {
 };
 
 // Hide elements by their class names
-const hideElementByClassName = (parent: string, className: string): void => {
-  const element = document.querySelector(`.${parent} .${className}`) as HTMLElement;
+const hideElementByClassName = (parentClass: string, elementClass: string): void => {
+  const element = document.querySelector(`.${parentClass} .${elementClass}`) as HTMLElement;
 
   // If element exists, then hide the element
   if (element) {
