@@ -1,3 +1,18 @@
+/* For smart phones */
+@media (max-width: 768px) {
+  .loading {
+    top: 30%;
+    width: 200px;    
+  }
+}
+
+/* Styles for iPads and tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .loading {
+    top: 20%
+  }
+}
+
 .loading {
   border: 1px solid #000;
   height: 100px;
@@ -11,6 +26,7 @@
   top: 50%;
   left: 50%;
   transform: translateX(-50%);
+  background: #fff;
 
   & .circles-container {
     display: flex;
@@ -55,17 +71,3 @@
   }
 }
 
-/* For smart phones */
-@media (max-width: 768px) {
-  .loading {
-    top: 30%;
-    width: 200px;    
-  }
-}
-
-/* Styles for iPads and tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .loading {
-    top: 20%
-  }
-}
