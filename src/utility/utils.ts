@@ -6,6 +6,7 @@ export const fetchWeatherDataFromLocation = async (location: string): Promise<We
   try {
     const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${filterInputValue(location)}?key=58BNYSLW5JBTD7K5WWJ46YRBL`);
 
+    // Check for HTTP errors
     if (!response.ok) {
       removeWeatherInfoCard();
       hideLoading(); // Hide Loading component when Bad Request takes place
@@ -296,6 +297,7 @@ const convertToNumber = (element: HTMLElement): number => {
   return Number(element.textContent); // Convert element's text content to number;
 };
 
+// Enable select to switch between celsius and fahrenheit
 export const switchTemperatureUnit = (): void => {
   const select = document.querySelector(".select-temperature-unit") as HTMLSelectElement;
   const tempSpan = document.querySelector(".temp") as HTMLElement;
