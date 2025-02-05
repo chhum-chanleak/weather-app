@@ -1,3 +1,4 @@
+import { Loading } from "../components/loading";
 import { weatherImageSources } from "../data/images";
 import * as WeatherInfoTypes from "../types/weather";
 
@@ -11,6 +12,7 @@ export const fetchWeatherDataFromLocation = async (location: string): Promise<We
       removeWeatherInfoCard();
       hideElementByClassName("main", "loading"); // Hide Loading component when Bad Request takes place
       showBadRequestMessage(location);
+      showElementByClassName("main", "bad-request-message");
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
