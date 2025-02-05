@@ -11,6 +11,7 @@ class Main {
 
   create(): HTMLElement {
     const main = document.createElement("main");
+    main.classList.add("main");
 
     // Append elements to main
     appendChildrenToParent(
