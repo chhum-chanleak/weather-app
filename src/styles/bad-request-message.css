@@ -11,6 +11,7 @@
 
     & p {
       text-indent: 1rem;
+      color: #bb0404;
     }
   }
 }
@@ -21,7 +22,7 @@
     .bad-request-message {
       border: 4px solid #000;
       height: 100px;
-      width: 600px;
+      width: 660px;
       border-radius: 1rem;
       gap: 1rem;
       background: #fff;
@@ -48,5 +49,6 @@
 
   & p {
     text-indent: 1rem;
+    color: #bb0404;
   }
 }

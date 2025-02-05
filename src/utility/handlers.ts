@@ -7,6 +7,7 @@ export const handleSearch = (): void => {
 
   // Check whether input exists and input.value is not empty
   if (utils.checkExistence(input) && filteredValue !== "") {
+    utils.hideElementByClassName("main", "bad-request-message");
     utils.removeWeatherInfoCard(); // Remove old WeatherInfoCard before adding a new one
     utils.addCardToWeatherInfoCards(new WeatherInfoCard().create(filteredValue));
     utils.stopFormRefreshing();
