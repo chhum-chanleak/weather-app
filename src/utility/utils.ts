@@ -98,7 +98,7 @@ export const fillWeatherInfoCardWithInformation = (): void => {
       if (info) {
         fillCardMainContent(info);
         fillCardFooter(info);
-        hideLoading(); // Stop displaying Loading component when the weather information is shown
+        hideElementByClassName("main", "loading") // Stop displaying Loading component when the weather information is shown
         setTemperatureUnitAccordingly(info.currentConditions.temp);
         setSelectDefaultOption(getTemperatureUnit(info.currentConditions.temp));
       } else {
@@ -125,12 +125,6 @@ export const filterInputValue = (str: string): string => {
   }
 
   return filteredArray.join("");
-};
-
-// Hide Loading component
-export const hideLoading = (): void => {
-  const loading = document.querySelector(".loading") as HTMLElement;
-  loading.style.display = "none";
 };
 
 // Show Loading component
