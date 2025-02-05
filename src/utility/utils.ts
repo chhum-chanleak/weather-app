@@ -354,4 +354,14 @@ export const showElementByClassName = (parentClass: string, elementClass: string
   }
 };
 
+// Set display: flex to element by their parent class and its class name
+export const flexElementByClassName = (parentClass: string, elementClass: string): void => {
+  const element = document.querySelector(`.${parentClass} .${elementClass}`) as HTMLElement;
+
+  // If element exists, then flex the element
+  if (element) {
+    element.style.display = "flex";
+  }
+};
+
 
