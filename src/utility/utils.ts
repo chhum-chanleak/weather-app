@@ -1,4 +1,3 @@
-import { Loading } from "../components/loading";
 import { weatherImageSources } from "../data/images";
 import * as WeatherInfoTypes from "../types/weather";
 
@@ -145,7 +144,7 @@ export const handleLoading = () => {
 
   // Display Loading component when the data is being fetched
   if (cityName.textContent === "") {
-    showLoading();
+    flexElementByClassName("main", "loading");
   }  
 };
 
