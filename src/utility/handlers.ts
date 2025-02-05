@@ -11,7 +11,7 @@ export const handleSearch = (): void => {
     utils.addCardToWeatherInfoCards(new WeatherInfoCard().create(filteredValue));
     utils.stopFormRefreshing();
     utils.fillWeatherInfoCardWithInformation();
-    utils.hideElementByClassName("main", "loading");
+    utils.handleLoading();
 
     // Clear input field
     input.value = "";
