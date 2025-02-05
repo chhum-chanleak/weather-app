@@ -1,4 +1,5 @@
 import { appendChildrenToParent } from "../utility/utils";
+import "../styles/bad-request-message.css";
 
 export class BadRequestMessage {
   create(): HTMLElement {
