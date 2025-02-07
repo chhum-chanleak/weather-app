@@ -10,6 +10,13 @@ const applyEvents = (): void => {
 
   const select = document.querySelector(".select-temperature-unit") as HTMLSelectElement;
   select.addEventListener("change", handleSelect);
+
+  // Fetch weather information of Frankfurt when DOM content loads
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.querySelector("input[name='location']") as HTMLInputElement
+    input.value = "frankfurt";
+    handleSearch();
+  });
 };
 
 const app = () => {
